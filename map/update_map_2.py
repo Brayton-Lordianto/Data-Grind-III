@@ -128,7 +128,7 @@ def get_click_popup(data, geojson, folium_map, cp):
 
             # get the total too
             total_for_country = sum(all_items_df['Value'])
-            s['properties']['Total Waste'] = total_for_country
+            s['properties']['Total Waste We Picked Up'] = total_for_country
             
             # initialize values for each item
             items = list(all_items_df['Item'])
@@ -140,13 +140,13 @@ def get_click_popup(data, geojson, folium_map, cp):
             s['properties']['Total Waste'] = 'No Data Yet'
 
     # get cols in correct order with country information
-    tooltip_fields = ['Country', 'Country_Code', '-'] + list(max_cols)
+    tooltip_fields = ['Country', 'Country_Code', '-', 'Total Waste We Picked Up'] + list(max_cols)
     
     # and finally adding a tooltip/hover to the choropleth's geojson
     folium.GeoJsonTooltip(tooltip_fields).add_to(cp.geojson)
     folium.LayerControl().add_to(folium_map)
 
-    # # print(folium_map)
+    # # print(folium_map)``
 
     return folium_map
 get_click_popup(df_new, geojson, folium_map, cp)
