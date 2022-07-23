@@ -1,7 +1,5 @@
 from google.cloud import vision
-import io
-
-path = 'server/images/image.png'
+import io, os
 
 
 def detect_text(path):
@@ -15,15 +13,9 @@ def detect_text(path):
     image = vision.Image(content=content)
 
     response = client.text_detection(image=image)
-    texts = (response.text_annotations[0]).description
-    format_text = texts.replace('\n', " ")
+    texts = (response.text_annotations[0]).description # Extracts the text from the data dictionary
+    format_text = texts.replace('\n', " ") # Formatted text
     print(format_text)
-
-    # for text in texts:
-    #     print('\n"{}"'.format(text.description))
-
-    #     vertices = (['({},{})'.format(vertex.x, vertex.y)
-    #                 for vertex in text.bounding_poly.vertices])
 
     if response.error.message:
         raise Exception(
@@ -31,4 +23,11 @@ def detect_text(path):
             'https://cloud.google.com/apis/design/errors'.format(
                 response.error.message))
 
-detect_text(path)
+
+directory = f'./server/images' # The directory
+for img in os.listdir(directory): # Loops over all the images in the directory
+
+    path = f'server/images/{img}' # Formatted string gives the required path
+
+    detect_text(path) # Calls the function for every image
+
