@@ -8,7 +8,7 @@ conn = psycopg2.connect("postgresql://chantal:hackrunway2022@free-tier6.gcp-asia
 def info(conn):
     with conn.cursor() as cur:
         cur.execute(
-             "CREATE TABLE IF NOT EXISTS users_table (username VARCHAR(60), text VARCHAR)"),
+             "CREATE TABLE IF NOT EXISTS users_table (username VARCHAR(60), text VARCHAR, image_object TEXT"),
         cur.execute(
              "CREATE TABLE IF NOT EXISTS waste_table ( )")
         cur.execute(
@@ -18,3 +18,10 @@ def info(conn):
       
         logging.debug("create_accounts(): status message: %s",
                       cur.statusmessage)
+        conn.commit() 
+
+
+def insert_post(conn, username, text, image_object):
+     with conn.cursor() as cur:
+        cur.execute(
+             f"INSERT INTO users_table (username, text, image_object) VALUES ('{username}', '{text}', '{image_object}')"),
