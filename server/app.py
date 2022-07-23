@@ -1,4 +1,3 @@
-from email.mime import image
 from flask import Flask, jsonify, request
 from db import *
 app = Flask(__name__)
@@ -18,4 +17,7 @@ def add_entry():
 
         
         
-        return jsonify(data)
+    return 'ok'
+
+
+#

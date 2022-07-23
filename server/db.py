@@ -23,9 +23,8 @@ def insert_post(conn, username, text, image_object):
         cur.execute(
              f"INSERT INTO users_table (username, text, image_object) VALUES ('{username}', '{text}', '{image_object}')")
 
-        data = cur.fetchall()
-     conn.commit
+        
+     conn.commit()
 
-     return data
 
 info(conn)
