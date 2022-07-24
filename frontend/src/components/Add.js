@@ -52,9 +52,10 @@ const Add = (props) => {
   };
   const imageInput = (event) => {
     // console.log(data);
+
     setData({
       ...data,
-      image: event.target.value,
+      image: event.target.file,
     });
   };
 
@@ -63,7 +64,7 @@ const Add = (props) => {
     setSubmitted(true);
 
     props.addPostHandler(data);
-axios.post()
+
     setData({
       excerpt: " ",
     });
@@ -126,9 +127,17 @@ axios.post()
               <EmojiEmotions color="primary" />
               <Image
                 color="secondary"
+                type="file"
                 value={data.image}
-                onClick={imageInput}
-              />
+                // onClick={imageInput}
+              >
+                <input
+                  type="file"
+                  value={data.image}
+                  onClick={imageInput}
+                  // ref={inputHandle}
+                />
+              </Image>
               <VideoCameraBack color="success" />
               <PersonAdd color="error" />
             </Stack>

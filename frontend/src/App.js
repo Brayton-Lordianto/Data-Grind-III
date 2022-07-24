@@ -46,9 +46,14 @@ function App() {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(posts));
   }, [posts]);
 
-  const addPostHandler = (post) => {
+  const addPostHandler = async (post) => {
     console.log(post);
-    setPost([...posts, post]);
+    const request = {
+      ...post,
+    };
+    const response = await axios.post("", request);
+    console.log(response);
+    setPost([...posts, response.data]);
   };
   return (
     <ThemeProvider theme={darkTheme}>
