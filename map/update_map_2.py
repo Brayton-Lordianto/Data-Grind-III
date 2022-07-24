@@ -24,7 +24,7 @@ def add_choropeth_to_map(data, geojson, folium_map):
         fill_color='YlOrRd', 
         fill_opacity=0.7, 
         line_opacity=0.2,
-        legend_name='Waste in KG/CAP in 2020'
+        legend_name='Contributions of users per classification -- measured in number of posts'
     ).add_to(folium_map)
 
     # self.cp = cp

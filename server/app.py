@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, render_template, request
 from db import *
 app = Flask(__name__)
 
@@ -20,4 +20,13 @@ def add_entry():
     return 'ok'
 
 
-#
+@app.route('/map_posts')
+def get_map():
+    return render_template('map_of_classified_posts.html')
+
+@app.route('/map_waste')
+def get_external_map():
+    return render_template('map_of_waste_per_cap.html')
+
+if __name__ == "__main__":
+    app.run()
