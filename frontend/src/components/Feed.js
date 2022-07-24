@@ -15,6 +15,7 @@ const Feed = () => {
         <Post name="Pakshi" />
         <Post name="Shashi" />
         <Post name="Bushi" />
+        <button> View More </button>
       </Box>
     </>
   );

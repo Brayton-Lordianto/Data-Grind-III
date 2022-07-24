@@ -40,7 +40,7 @@ const Add = () => {
     <>
       <Tooltip
         onClick={(e) => setOpen(true)}
-        title="Delete"
+        title="Add a Post"
         sx={{
           position: "fixed",
           bottom: 30,

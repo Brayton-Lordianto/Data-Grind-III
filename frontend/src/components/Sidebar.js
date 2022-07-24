@@ -35,19 +35,19 @@ const Sidebar = ({ setMode, mode }) => {
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-              <ListItemButton component="a" href="#home">
+              <ListItemButton component="a" href="http://127.0.0.1:5000/map_waste">
                 <ListItemIcon>
                   <Pages />
                 </ListItemIcon>
-                <ListItemText primary="Pages" />
+                <ListItemText primary="Why should I contribute?"/>
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-              <ListItemButton component="a" href="#home">
+              <ListItemButton component="a" href="http://127.0.0.1:5000/map_posts">
                 <ListItemIcon>
                   <Groups />
                 </ListItemIcon>
-                <ListItemText primary="Groups" />
+                <ListItemText primary="Contributions Map" />
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
@@ -55,7 +55,7 @@ const Sidebar = ({ setMode, mode }) => {
                 <ListItemIcon>
                   <Storefront />
                 </ListItemIcon>
-                <ListItemText primary="Marketplace" />
+                <ListItemText primary="Marketplaces" />
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
