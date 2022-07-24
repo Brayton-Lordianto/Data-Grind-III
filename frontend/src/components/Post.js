@@ -14,6 +14,8 @@ import {
 import { Favorite, FavoriteBorder, MoreVert, Share } from "@mui/icons-material";
 
 const Post = (props) => {
+  const { excerpt, image } = props;
+  console.log(excerpt, image);
   return (
     <Card sx={{ margin: 5 }}>
       <CardHeader
@@ -27,21 +29,19 @@ const Post = (props) => {
             <MoreVert />
           </IconButton>
         }
-        title={props.name}
+        title="user"
         subheader="September 14, 2016"
       />
       <CardMedia
         component="img"
         height="10%"
-        image={props.image}
+        width="10%"
+        image={image}
         alt="Paella dish"
       />
       <CardContent>
         <Typography variant="body2" color="text.primary">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. In,
-          doloremque praesentium quisquam beatae amet, necessitatibus ab qui ea
-          reiciendis expedita, sunt facilis voluptatibus rerum pariatur commodi
-          mollitia iste fugit porro?
+          {excerpt}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
